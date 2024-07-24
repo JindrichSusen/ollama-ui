@@ -257,6 +257,7 @@ window.onload = () => {
   document.getElementById("new-chat").addEventListener("click", startNewChat);
   document.getElementById("saveName").addEventListener("click", saveChat);
   document.getElementById("chat-select").addEventListener("change", loadSelectedChat);
+  document.getElementById("prompt-select").addEventListener("change", setSelectedPromptTemplate);
   document.getElementById("host-address").addEventListener("change", setHostAddress);
   document.getElementById("system-prompt").addEventListener("change", setSystemPrompt);
 }
@@ -295,10 +296,28 @@ function loadSelectedChat() {
   document.getElementById('chat-container').style.display = 'block';
 }
 
+function setSelectedPromptTemplate() {
+  const selectedPrompt = document.getElementById("prompt-select").value;
+  let newPrompt;
+  switch (selectedPrompt) {
+    case "C# to TS":
+      newPrompt = "Turn this c# class into a typescript interface. All properties should be mutable. Don't add setters. Output only code, no explanation."
+      break;
+    default:
+      break;
+  }
+  if(newPrompt){
+    newPrompt += "\n";
+    document.getElementById("user-input").value = newPrompt;
+    document.getElementById("user-input").focus();
+  }
+}
+
 function startNewChat() {
     document.getElementById("chat-history").innerHTML = null;
     document.getElementById("chat-history").context = null;
     document.getElementById('chat-container').style.display = 'none';
+    document.getElementById("prompt-select").value = "";
     updateChatList();
 }
 

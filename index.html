@@ -38,6 +38,13 @@
                 <h1>Chat with Ollama</h1>
                 <!-- Model dropdown -->
                 <div class="d-flex align-items-center m-1">
+                  <div class="predefined-prompts">
+                    <label for="prompt-select" class="me-2" style="font-size: normal;">Prompt Template:</label>
+                    <select id="prompt-select" class="form-select me-2" style="width: auto;">
+                        <option value="" disabled selected>Select a prompt</option>
+                        <option value="C# to TS" >C# to TS</option>
+                    </select>
+                  </div>
                   <div class="p-2 flex-grow-1 bd-highlight">
                     <label for="system-prompt" class="me-2" style="font-size: normal;">System Prompt</label>
                     <input id="system-prompt" class="form-control" type="text" placeholder="You are a helpful assistant" style="width: auto;"></select>

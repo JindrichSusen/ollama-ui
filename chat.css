@@ -83,3 +83,8 @@ body {
     display: none; /* This will hide the h1 when the window width is 600px or less */
   }
 }
+
+.predefined-prompts {
+    align-self: flex-start;
+    margin-top: 17px;
+}
